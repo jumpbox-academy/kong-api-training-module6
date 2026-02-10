@@ -1,0 +1,20 @@
+_format_version: "3.0"
+services:
+- name: demo-service
+  url: http://hello-api:3000
+  routes:
+  - name: hello-v1
+    paths:
+      - /api
+    strip_path: true
+
+plugins:
+  - name: key-auth
+    config:
+      key_names:
+      - apikey
+
+consumers:
+  - username: user-consumer
+    keyauth_credentials:
+    - key: lfomvny#ash@
